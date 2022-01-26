@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">    
+<head>    
+    <link rel="stylesheet" type="text/css" href="./pages/index.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+</head>
+<body class ="page">
+ <header class ="header">
+    <img class = "header__logo" src ="./images/Logo.svg" alt ="Место">     
+ </header>
+ <main>
+    <section class ="profile">
+        <img class = "profile__avatar" src="images/image.jpg" alt = "Аватар">           
+        <div class = "profile__info">
+            <h1 class ="profile__user">Жак-Ив Кусто</h1>
+            <button class ="profile__edit-button" type ="button"></button>
+            <p class ="profile__description">Исследователь океана</p>       
+        </div>
+        <button class ="profile__add-button" type ="button"></button>
+    </section>
+    <section class = "group">
+        <ul class ="group__elements">
+            <li class ="group__element">                
+                    <img class ="group__element-img" src ="images/gori.jfif" alt ="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Горный пейзаж</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+            <li class ="group__element">                
+                    <img class ="group__element-img" src ="images/trassa.jfif" alt ="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Быстрый спуск</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+            <li class ="group__element">                
+                    <img class ="group__element-img" src ="images/vdohnovenie.jfif" alt ="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Вдохновение</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+            <li class ="group__element">                
+                    <img class ="group__element-img" src ="images/skorost.jfif" alt="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Скорость</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+            <li class ="group__element">           
+                    <img class ="group__element-img" src ="images/kompania.jfif" alt="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Мои друзья</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+            <li class ="group__element">                
+                    <img class ="group__element-img" src ="images/truk.jfif" alt="Изображение">
+                    <div class ="group__element-caption">
+                        <h2 class ="group__element-text">Вау! Впечатляет</h2>
+                        <button class ="group__element-like" type ="button"></button>
+                    </div>                
+            </li>
+        </ul>
+    </section>   
+ </main>
+ <footer class ="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+</footer>
+<div class ="popup">   
+    <form class ="popup__container">
+        <button class ="popup__close-icon"></button>                
+        <h3 class ="popup__title">Редактировать профиль</h3>        
+            <input class ="popup__user-name" type="text" name="username" placeholder="Пользователь" required>  
+            <input class ="popup__user-info" type="text" name="userinfo" placeholder="Информация о себе" required>    
+            <button class ="popup__submit" type="submit">
+                <h4 class ="popup__submit-text">Сохранить</h4>
+            </button>
+    </form>        
+</div>
+<script src ="blocks/scripts/index.js"></script>
+</body>
+</html>

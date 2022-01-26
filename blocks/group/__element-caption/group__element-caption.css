@@ -1,0 +1,9 @@
+.group__element-caption{
+    height: 80px;
+    box-sizing: border-box;
+    position: relative;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

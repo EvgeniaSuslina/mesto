@@ -1,0 +1,7 @@
+.popup__user-info{
+    height:27px;    
+    border: none;
+    margin-left: 22px;
+    margin-right: 22px;
+    border-bottom: 1px solid rgba(0,0,0,0,0.2);
+}

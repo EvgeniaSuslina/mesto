@@ -1,0 +1,14 @@
+.group__element-like{
+    position: absolute;
+    right:30px;
+    top: 30px;
+    border:none;
+    padding:0;
+    width:22px;
+    height: 19px;
+    background-color: inherit; 
+    background-image: url(../../../images/Vector4.svg); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
