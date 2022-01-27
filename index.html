@@ -72,16 +72,16 @@
     <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
 </footer>
 <div class ="popup">   
-    <form class ="popup__container">
+    <form class ="popup__container" method="get" name="form">
         <button class ="popup__close-icon"></button>                
         <h3 class ="popup__title">Редактировать профиль</h3>        
-            <input class ="popup__user-name" type="text" name="username" placeholder="Пользователь" required>  
-            <input class ="popup__user-info" type="text" name="userinfo" placeholder="Информация о себе" required>    
+            <input class ="popup__input popup__user-name" type="text" name="username" placeholder="Пользователь" required>  
+            <input class ="popup__input popup__user-info" type="text" name="userinfo" placeholder="Информация о себе" required>    
             <button class ="popup__submit" type="submit">
                 <h4 class ="popup__submit-text">Сохранить</h4>
             </button>
     </form>        
 </div>
-<script src ="blocks/scripts/index.js"></script>
+<script src ="scripts/index.js"></script>
 </body>
 </html>

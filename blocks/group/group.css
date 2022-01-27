@@ -1,4 +1,6 @@
 .group{
+    margin: 0 auto;
+    max-width: 880px;
     margin-top: 36px;
 }
 @media screen and (max-width: 1280px){

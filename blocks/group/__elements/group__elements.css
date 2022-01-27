@@ -7,8 +7,8 @@
     justify-content: center;
     gap: 20px;
 }
-   
-@media screen and (max-width: 1440px){
+  
+@media screen and (max-width: 1600px){
     .group__elements{
         gap: 16px;        
     }  

@@ -1,9 +1,8 @@
 .profile{
+    margin: 0 auto;
+    max-width: 880px;
     display: flex;
     flex-direction: column;
-    border:hotpink 1px solid;    
-    font-family: 'Inter', Arial, 'sans-serif';
-    font-style: normal;
     color: #FFFFFF;
     margin-top: 42px;
 }

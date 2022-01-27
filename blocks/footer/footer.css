@@ -1,5 +1,7 @@
 .footer{
-    margin: 48px 19px auto 19px;
+  margin: 0 auto;
+  max-width: 880px;
+  
 }
 
 @media screen and (min-width: 624px) {
