@@ -1,5 +1,5 @@
 .profile__edit-button{    
-    align-self: center;    
+    align-self: center;
     background-image: url(../../../images/Vector.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -14,7 +14,7 @@
 }
 .profile__edit-button:hover{
     cursor: pointer;
-    opacity: 0.6; 
+    opacity: 0.6;
 }
 
 
