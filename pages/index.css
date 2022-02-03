@@ -1,7 +1,8 @@
-@import url(../styles/normalize.css);
-@import url(../fonts/Inter/Inter.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/Inter/Inter.css);
 @import url(../blocks/page/page.css);
-@import url(../blocks/scripts/index.js);
+@import url(../blocks/page/__contents/page__contents.css);
+@import url(../scripts/index.js);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -24,6 +25,7 @@
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
@@ -33,7 +35,7 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__user-name/popup__user-name.css);
 @import url(../blocks/popup/__user-info/popup__user-info.css);
-@import url(../blocks/popup/__opened/popup__opened.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
 
 
 

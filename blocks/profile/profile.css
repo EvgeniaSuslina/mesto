@@ -1,6 +1,4 @@
-.profile{
-    margin: 0 auto;
-    max-width: 880px;
+.profile{    
     display: flex;
     flex-direction: column;
     color: #FFFFFF;
