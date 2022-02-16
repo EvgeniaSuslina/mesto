@@ -1,4 +1,3 @@
-const popup = document.querySelector(".popup");
 const popupEdit = document.querySelector(".popup_type_edit");
 const popupAdd = document.querySelector(".popup_type_add");
 const popupImage = document.querySelector(".popup_type_image");
@@ -16,6 +15,8 @@ const formElementEdit = document.querySelector(".popup__container_type_edit");
 const formElementAdd = document.querySelector(".popup__container_type_add");
 const nameInput = document.querySelector(".popup__user-name");
 const jobInput = document.querySelector(".popup__user-info");
+const nameImg = document.querySelector(".popup__image-name")
+const linkImg = document.querySelector(".popup__image-link") 
 const profileUser = document.querySelector(".profile__user");
 const profileDescription = document.querySelector(".profile__description");
 
@@ -87,22 +88,21 @@ function handleProfileFormSubmit(evt) {
 }
 
 
-function addFormSubmitHandler(evt) {
-  evt.preventDefault();
-  const nameImg = document.querySelector(".popup__image-name").value;
-  const linkImg = document.querySelector(".popup__image-link").value;
-  image = renderCard(nameImg, linkImg);
+function handleAddFormSubmit(evt) {
+  evt.preventDefault();  
+  const image = renderCard(nameImg.value, linkImg.value);
   groupElements.prepend(image); 
   closePopup(popupAdd);
+  formElementAdd.reset()
 }
 
 formElementEdit.addEventListener("submit", handleProfileFormSubmit);
-formElementAdd.addEventListener("submit", addFormSubmitHandler);
+formElementAdd.addEventListener("submit", handleAddFormSubmit);
 
 //удаление
 
 const handleDelete = (evt) => {
-evt.target.closest(".group__element").remove();
+  evt.target.closest(".group__element").remove();
 };
 
 //лайк
@@ -134,7 +134,7 @@ function renderCard(name, link) {
   likeButton.addEventListener("click", handleLike)
 
 //открываю картинку на весь экран
-  fullImage.addEventListener("click", function () {
+  fullImage.addEventListener("click", () => {
       fullText.textContent = name;
       fullPic.src = link;
       fullPic.alt = name;
@@ -150,9 +150,9 @@ function addCard(image) {
   groupElements.append(image);
 }
 //добавление массива карточек
-initialCards.forEach(function (item) {
-  const image = renderCard(item.name, item.link);
+initialCards.forEach((item) => {
+    const image = renderCard(item.name, item.link);
 
-// добавление карточки на страницу
-  addCard(image);
-});
+    // добавление карточки на страницу
+    addCard(image);
+  });

@@ -11,7 +11,7 @@
     background-position: center;
     background-size: 16px;
     padding:0;
-    opacity: 1; 
+    transition: opacity .5s;
 }
 .profile__add-button:hover{
     cursor: pointer;

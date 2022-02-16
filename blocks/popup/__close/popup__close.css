@@ -11,7 +11,7 @@
     background-position: center;
     background-size: cover;
     background-color: rgba(0, 0, 0, .0);
-    opacity: 1;
+    transition: opacity .3s;
  }
  
  .popup__close:hover{
@@ -19,4 +19,13 @@
     opacity: 0.6;
  }
  
+ @media screen and (min-width:624px) {
+   .popup__close{
+      width: 32px;
+      height: 32px;
+      top: -38px;
+      right: -38px;
+      
+   }
+}
  

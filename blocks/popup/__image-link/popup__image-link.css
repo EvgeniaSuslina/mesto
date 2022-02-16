@@ -2,9 +2,10 @@
     height:27px;
     margin-left: 22px;
     margin-right: 22px;
+    font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #000000;    
+    color: #C4C4C4;    
 }
 
 @media screen and (min-width:624px) {
