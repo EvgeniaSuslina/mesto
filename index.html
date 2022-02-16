@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <link rel="stylesheet" type="text/css" href="././pages/index.css"/>
+    <link rel="stylesheet" type="text/css" href="././pages/index.css" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,65 +24,155 @@
         </section>
         <section class="group">
           <ul class="group__elements">
-            <li class="group__element">
-              <img class="group__element-img" src="images/gori.jfif" alt="Изображение"/>
+            <!---<li class="group__element">
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/gori.jfif"
+                alt="Изображение"
+              />              
               <div class="group__element-caption">
                 <h2 class="group__element-text">Горный пейзаж</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
             </li>
             <li class="group__element">
-              <img class="group__element-img" src="images/trassa.jfif" alt="Изображение"/>
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/trassa.jfif"
+                alt="Изображение"
+              />
               <div class="group__element-caption">
                 <h2 class="group__element-text">Быстрый спуск</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
             </li>
             <li class="group__element">
-              <img class="group__element-img" src="images/vdohnovenie.jfif"  alt="Изображение"/> 
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/vdohnovenie.jfif"
+                alt="Изображение"
+              />
               <div class="group__element-caption">
                 <h2 class="group__element-text">Вдохновение</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
             </li>
             <li class="group__element">
-              <img class="group__element-img" src="images/skorost.jfif" alt="Изображение"/>
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/skorost.jfif"
+                alt="Изображение"
+              />
               <div class="group__element-caption">
                 <h2 class="group__element-text">Скорость</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
             </li>
             <li class="group__element">
-              <img class="group__element-img" src="images/kompania.jfif" alt="Изображение"/>
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/kompania.jfif"
+                alt="Изображение"
+              />
               <div class="group__element-caption">
                 <h2 class="group__element-text">Мои друзья</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
             </li>
             <li class="group__element">
-              <img class="group__element-img" src="images/truk.jfif" alt="Изображение"/>
+              <button class ="group__element-trash" type = "button"></button>
+              <img
+                class="group__element-img"
+                src="images/truk.jfif"
+                alt="Изображение"
+              />
               <div class="group__element-caption">
                 <h2 class="group__element-text">Вау! Впечатляет</h2>
                 <button class="group__element-like" type="button"></button>
               </div>
-            </li>
+            </li>-->
           </ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
-      <section class="popup">
-        <form class="popup__container" name="form">
-          <button class="popup__close-icon"></button>
+      <section class="popup popup_type_edit">
+        <form class="popup__container popup__container_type_edit" name="form">
+          <button class="popup__close popup__close_type_edit"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input class="popup__input popup__user-name" type="text" name="username" placeholder="Пользователь" required/>
-          <input class="popup__input popup__user-info" type="text" name="userinfo" placeholder="Информация о себе" required/>
-          <button class="popup__submit popup__submit-text" type="submit">
+          <input
+            class="popup__input popup__user-name"
+            type="text"
+            name="username"
+            placeholder="Пользователь"
+            required
+          />
+          <input
+            class="popup__input popup__user-info"
+            type="text"
+            name="userinfo"
+            placeholder="Информация о себе"
+            required
+          />
+          <button class="popup__submit popup__submit_edit popup__submit-text" type="submit">
             Сохранить
           </button>
         </form>
       </section>
+      <section class="popup popup_type_add">
+        <form class="popup__container popup__container_type_add" name="form">
+          <button class="popup__close popup__close_type_add"></button>
+          <h3 class="popup__title">Новое место</h3>
+          <input
+            class="popup__input popup__image-name"
+            type="text"
+            name="username"
+            placeholder="Название"
+            required
+          />
+          <input
+            class="popup__input popup__image-link"
+            type="text" 
+            name="userinfo"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <button class="popup__submit popup__submit_add popup__submit-text" type="submit">
+            Создать
+          </button>
+        </form>
+      </section>
+      <section class="popup popup_type_image">
+        <div class ="popup__container_type_img">
+          <button class="popup__close popup__close_type_image"></button>
+          <img
+          class="popup__image"
+          src="images/gori.jfif"
+          alt="Рабочееназвание"
+          />
+          <h2 class ="popup__caption">Текст</h2>
+        </div>
+      </section>
+      <template class ="template">
+        <li class="group__element">
+          <button class ="group__element-trash" type = "button"></button>
+          <img
+            class="group__element-img"
+            src=""
+            alt=""
+          />
+          <div class="group__element-caption">
+            <h2 class="group__element-text"></h2>
+            <button class="group__element-like" type="button"></button>
+          </div>
+        </li>
+      </template>
       <script src="././scripts/index.js"></script>
     </div>
   </body>

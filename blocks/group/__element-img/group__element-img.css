@@ -4,3 +4,7 @@
     object-fit: cover;
     margin-bottom: -4px;
 }
+
+.group__element-img:hover{
+cursor: pointer;
+}
