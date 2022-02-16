@@ -3,13 +3,13 @@
     top: -32px;
     right: 0;
     border:none;
-    padding: 0;    
+    padding: 0;
     width:20px;
-    height: 20px;    
+    height: 20px;
     background-image: url(../../../../images/close.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;    
+    background-size: cover;
     background-color: rgba(0, 0, 0, .0);
     opacity: 1;
 }

@@ -1,7 +1,7 @@
 .popup{
     visibility: hidden;
     opacity: 0;
-    transition: visibility 1s ease 2s;   
+    transition: visibility 1s ease 2s;
     position: fixed;
     background: rgba(0,0,0,0.5);
     display: none;
