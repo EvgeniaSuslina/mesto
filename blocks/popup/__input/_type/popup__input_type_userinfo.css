@@ -1,17 +1,8 @@
 .popup__input_type_userinfo{
     height:27px;
     box-sizing: border-box;
-    width:100%;
-    /*margin-left: 22px;
-    margin-right: 22px;*/
+    width:100%;    
     font-size: 14px;
     line-height: 17px;
     color: #000000;    
 }
-/*
-@media screen and (min-width:624px) {
-    .popup__input_type_userinfo{
-        /*margin-left: 36px;
-        margin-right: 36px;
-    }
- }
