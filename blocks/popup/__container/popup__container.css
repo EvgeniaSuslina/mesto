@@ -7,7 +7,7 @@
     margin:0 19px;
     width: 100%;
     max-width: 430px;
-    height: 322px;
+    /*height: 322px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;

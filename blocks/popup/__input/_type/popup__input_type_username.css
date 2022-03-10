@@ -1,0 +1,15 @@
+.popup__input_type_username{
+    height:27px;
+    box-sizing: border-box;
+    width:100%;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;     
+}
+
+/*
+@media screen and (min-width:624px) {
+    .popup__input_type_username{
+        /*margin: 40px 36px 30px 36px;
+    }
+ }

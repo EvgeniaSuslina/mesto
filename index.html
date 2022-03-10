@@ -103,47 +103,69 @@
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
       <section class="popup popup_type_edit">
-        <form class="popup__container popup__container_type_edit" name="form">
+        <form class="popup__container popup__container_type_edit" name="form" novalidate>
           <button type="button" class="popup__close popup__close_type_edit"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
+          <div class ="popup__input-container">
           <input
-            class="popup__input popup__user-name"
+            id = "username"
+            class="popup__input popup__input_type_username"
             type="text"
             name="username"
-            placeholder="Пользователь"
+            placeholder="Имя"
+            minlength="2"
+            maxlength="40"
             required
           />
+          <span id = "error-username" class ="error-username  error-message  error-message__visible"></span>
+          </div>
+          <div class ="popup__input-container"> 
           <input
-            class="popup__input popup__user-info"
+            id = "userinfo"
+            class="popup__input popup__input_type_userinfo"
             type="text"
             name="userinfo"
-            placeholder="Информация о себе"
+            placeholder="О себе"
+            minlength="2"
+            maxlength="200"
             required
           />
-          <button class="popup__submit popup__submit_edit popup__submit-text" type="submit">
+          <span id = "error-userinfo" class ="error-userinfo  error-message  error-message__visible"></span>
+          </div>
+          <button class="popup__submit popup__submit_edit" type="submit">
             Сохранить
           </button>
         </form>
       </section>
       <section class="popup popup_type_add">
-        <form class="popup__container popup__container_type_add" name="form">
+        <form class="popup__container popup__container_type_add" name="form" novalidate>
           <button type="button" class="popup__close popup__close_type_add"></button>
           <h3 class="popup__title">Новое место</h3>
+          <div class ="popup__input-container">
           <input
-            class="popup__input popup__image-name"
-            type="text"
+            id = "imagename"
+            class="popup__input popup__input_type_imagename"
+            type="text" 
             name="username"
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
             required
           />
+          <span id = "error-imagename" class ="error-imagename  error-message  error-message__visible"></span>
+          </div>
+          <div class ="popup__input-container">
           <input
-            class="popup__input popup__image-link"
-            type="text" 
+            id = "imagelink"
+            class="popup__input popup__input_type_imagelink"
+            type="url" 
             name="userinfo"
-            placeholder="Ссылка на картинку"
+            placeholder="Ссылка на картинку"            
             required
           />
-          <button class="popup__submit popup__submit_add popup__submit-text" type="submit">
+          <span id = "error-imagelink" class ="error-imagelink  error-message  error-message__visible"></span>
+          </div>
+          <button class="popup__submit popup__submit_add" type="submit">
             Создать
           </button>
         </form>
@@ -174,6 +196,7 @@
         </li>
       </template>
       <script src="././scripts/index.js"></script>
+      <script src="././scripts/validate.js"></script>
     </div>
   </body>
 </html>
