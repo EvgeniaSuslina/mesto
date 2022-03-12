@@ -4,7 +4,7 @@ const config = {
     submitButtonSelector: '.popup__submit',
     inactiveButtonClass: 'popup__submit_disabled',
     inputErrorClass: 'popup__input_type_error',
-    errorClass: 'error-message__visible'
+    
   }; 
 
 const showError = (formElement, inputElement, errorMessage, config) => {

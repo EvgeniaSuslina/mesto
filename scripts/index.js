@@ -11,7 +11,8 @@ const popupCloseButtonEdit = document.querySelector(".popup__close_type_edit");
 const popupCloseButtonAdd = document.querySelector(".popup__close_type_add");
 const popupCloseButtomImg = document.querySelector(".popup__close_type_image");
 
-const popupSaveButton = document.querySelector(".popup__submit");
+const popupSaveButton = document.querySelector(".popup__submit_add");
+const popupSaveBtnEdit = document.querySelector(".popup__submit_edit")
 const formElementEdit = document.querySelector(".popup__container_type_edit");
 const formElementAdd = document.querySelector(".popup__container_type_add");
 const nameInput = document.querySelector(".popup__input_type_username");
@@ -51,7 +52,7 @@ const initialCards = [
 //открытие popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", keyHandler)
+  document.addEventListener("keydown", handleFormSubmitEsc)
 }
 
 //заполнение полей input edit
@@ -72,57 +73,55 @@ imageAddButton.addEventListener("click", function () {
 //закрытие popup
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", keyHandler)
+  document.removeEventListener("keydown", handleFormSubmitEsc)
 }
 
+//объединение обработчиков оверлея и крестиков
+const popups = document.querySelectorAll('.popup')
 
-popupCloseButtonEdit.addEventListener("click", function () {  
-    closePopup(popupEdit);
-  });
-popupCloseButtonAdd.addEventListener("click", function () {
-    closePopup(popupAdd);
-  });
-popupCloseButtomImg.addEventListener("click", function(){
-    closePopup(popupImage);
-    })
-
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+          closePopup(popup)
+        };
+    });
+});
 
 //функция закрытия popup по нажатию на esc
-function keyHandler(event) {
+function handleFormSubmitEsc(event) {
   if (event.key === "Escape"){
     closePopup(document.querySelector('.popup_opened'));
   }
 }
+popupCloseButtonEdit.addEventListener("keydown", handleFormSubmitEsc)
+popupCloseButtonAdd.addEventListener("keydown", handleFormSubmitEsc)
 
-popupCloseButtonEdit.addEventListener("keydown", keyHandler)
-popupCloseButtonAdd.addEventListener("keydown", keyHandler)
 
-//функция закрытия popup кликом на оверлей
-function overlayClose(event) {
-  if(event.target = event.currentTarget) {
-    closePopup(event.target);
-  }
+//функция деактивации кнопки сабмит
+function handlerButtonDisbled(evt){
+  evt.classList.add('popup__submit_disabled');
+  evt.setAttribute('disabled', '');
 }
-
-popupEdit.addEventListener('click', overlayClose);
-popupAdd.addEventListener('click', overlayClose);
-popupImage.addEventListener('click', overlayClose);
-
-
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileUser.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
+  handlerButtonDisbled(popupSaveBtnEdit);
   closePopup(popupEdit);
 }
 
 function handleAddFormSubmit(evt) {
   evt.preventDefault();  
   const image = renderCard(nameImg.value, linkImg.value);
-  groupElements.prepend(image); 
+  groupElements.prepend(image);
+  evt.target.reset();
+  handlerButtonDisbled(popupSaveButton);
   closePopup(popupAdd);
-  formElementAdd.reset()
+ 
 }
 
 formElementEdit.addEventListener("submit", handleProfileFormSubmit);
@@ -183,41 +182,3 @@ initialCards.forEach((item) => {
     // добавление карточки на страницу
     addCard(image);
   });
-
-
-  /*
-//функция закрытия popup кликом на оверлей
-function overlayClose(event) {
-  if (event.target.classList.contains('popup')) {
-    closePopup(event.target);
-  }
-}
-
-console.log(overlayClose)
-
-//закрытие popup кликом на кнопку
-function buttonClose(event) {
-  if(event.target.classList.contains('popup__submit')) {
-    closePopup(event.currentTarget);
-  }
-}
-console.log(buttonClose)
-
-function addListenersClose (){
-
-  const popupList = document.querySelectorAll(".popup__close");
-
-  console.log(popupList)
-
-  popupList.forEach(popup => {
-    popup.addEventListener("click", function(event){
-      overlayClose(event);
-      buttonClose(event);
-    });
-  }); 
-}
-
-addListenersClose()
-
-console.log(addListenersClose)
-*/
