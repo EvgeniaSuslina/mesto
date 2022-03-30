@@ -1,4 +1,7 @@
+import { Card } from '../scripts/Card.js'
+import { FormValidator } from '../scripts/FormValidator.js'
 
+const popups = document.querySelectorAll('.popup')
 const popupEdit = document.querySelector(".popup_type_edit");
 const popupAdd = document.querySelector(".popup_type_add");
 const popupImage = document.querySelector(".popup_type_image");
@@ -21,7 +24,9 @@ const nameImg = document.querySelector(".popup__input_type_imagename")
 const linkImg = document.querySelector(".popup__input_type_imagelink") 
 const profileUser = document.querySelector(".profile__user");
 const profileDescription = document.querySelector(".profile__description");
+const groupElements = document.querySelector(".group__elements");
 
+//массив карточек
 const initialCards = [
   {
     name: "Барселона, Испания",
@@ -48,6 +53,24 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1621868811134-2548d9e7f147?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
 ];
+
+//конфигурация для валидации
+const config = {
+  formSelector: '.popup__container',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  
+};
+
+//валидация форм
+const validationElementEdit = new FormValidator(config, formElementEdit);
+validationElementEdit.enableValidation()
+
+const validationElementAdd = new FormValidator(config, formElementAdd);
+validationElementAdd.enableValidation()
+
 
 //открытие popup
 function openPopup(popup) {
@@ -77,8 +100,6 @@ function closePopup(popup) {
 }
 
 //объединение обработчиков оверлея и крестиков
-const popups = document.querySelectorAll('.popup')
-
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened')) {
@@ -106,6 +127,7 @@ function handlerButtonDisbled(evt){
   evt.setAttribute('disabled', '');
 }
 
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileUser.textContent = nameInput.value;
@@ -114,9 +136,10 @@ function handleProfileFormSubmit(evt) {
   closePopup(popupEdit);
 }
 
+
 function handleAddFormSubmit(evt) {
   evt.preventDefault();  
-  const image = renderCard(nameImg.value, linkImg.value);
+  const image = generateCard(nameImg.value, linkImg.value);
   groupElements.prepend(image);
   evt.target.reset();
   handlerButtonDisbled(popupSaveButton);
@@ -127,58 +150,36 @@ function handleAddFormSubmit(evt) {
 formElementEdit.addEventListener("submit", handleProfileFormSubmit);
 formElementAdd.addEventListener("submit", handleAddFormSubmit);
 
-//удаление
-
-const handleDelete = (evt) => {
-  evt.target.closest(".group__element").remove();
-};
-
-//лайк
-const handleLike = (event) => {
-  event.target.classList.toggle("group__element-like_liked");
-}
-
-//массив карточек
-const template = document.querySelector(".template").content; //нахожу заготовку 
-
-function renderCard(name, link) {
-//создание карточки
-
-  const newItem = template.querySelector(".group__element").cloneNode(true); //делаю копию 
-
-  const elementImage = newItem.querySelector(".group__element-img");
-  const elementText = newItem.querySelector(".group__element-text");
-  const deleteButton = newItem.querySelector(".group__element-trash");
-  const likeButton = newItem.querySelector(".group__element-like");
-  const fullImage = newItem.querySelector(".group__element-img");
-
-  elementImage.src = link;
-  elementImage.alt = name;
-  elementText.textContent = name;
-  
-  deleteButton.addEventListener("click", handleDelete)
-  likeButton.addEventListener("click", handleLike)
 
 //открываю картинку на весь экран
-  fullImage.addEventListener("click", () => {
-      fullText.textContent = name;
-      fullPic.src = link;
-      fullPic.alt = name;
-      openPopup(popupImage);
-    })
-  
-  return newItem;
+export function openImagePopup(name, link){
+  fullText.textContent = name;
+    fullPic.src = link;
+    fullPic.alt = name;
+    openPopup(popupImage);
 }
 
-const groupElements = document.querySelector(".group__elements");
+
+//генерация карточки
+function generateCard(name, link){
+  const card = new Card (name, link, ".template", openImagePopup);
+  const cardElement = card.renderCard();
+  return cardElement;
+}
+
+
 //добавление карточки в разметку
 function addCard(image) {
   groupElements.append(image);
 }
+
 //добавление массива карточек
 initialCards.forEach((item) => {
-    const image = renderCard(item.name, item.link);
+    const image = generateCard(item.name, item.link);
 
-    // добавление карточки на страницу
+  // добавление карточки на страницу
     addCard(image);
   });
+
+
+ 
