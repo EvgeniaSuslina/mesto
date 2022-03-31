@@ -124,13 +124,6 @@ function handleFormSubmitEsc(event) {
   }
 }
 
-//функция деактивации кнопки сабмит
-//function handlerButtonDisbled(evt){
-  //evt.classList.add('popup__submit_disabled');
-  //evt.setAttribute('disabled', '');
-//}
-
-
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileUser.textContent = nameInput.value;
