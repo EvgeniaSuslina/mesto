@@ -91,9 +91,16 @@ class FormValidator{
     enableValidation() {     
         
         this._form = this._getform()
-
         this._setEventListeners();
-    }   
+    }  
+    
+    resetValidation() {
+        this._toggleButtonState(); 
+  
+        this._inputList.forEach((inputElement) => {
+        this._hideError(inputElement) 
+        });     
+    }    
 }
 
 export { FormValidator }

@@ -75,22 +75,28 @@ validationElementAdd.enableValidation()
 //открытие popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", handleFormSubmitEsc)
+  document.addEventListener("keydown", handleFormSubmitEsc); 
+
 }
 
 //заполнение полей input edit
 function handleInputEdit () {
   nameInput.value = profileUser.textContent;
   jobInput.value = profileDescription.textContent;
+  validationElementEdit.resetValidation();
   openPopup(popupEdit);
 }
 
-profileOpenPopupButton.addEventListener("click", handleInputEdit);
-
-imageAddButton.addEventListener("click", function () {
+//заполнение полей input add
+function handleInputAdd (){
+  nameImg.value = ''
+  linkImg.value = ''  
+  validationElementAdd.resetValidation();
     openPopup(popupAdd);
-  });
+}
 
+profileOpenPopupButton.addEventListener("click", handleInputEdit);
+imageAddButton.addEventListener("click", handleInputAdd);
 
 
 //закрытие popup
@@ -117,22 +123,18 @@ function handleFormSubmitEsc(event) {
     closePopup(document.querySelector('.popup_opened'));
   }
 }
-popupCloseButtonEdit.addEventListener("keydown", handleFormSubmitEsc)
-popupCloseButtonAdd.addEventListener("keydown", handleFormSubmitEsc)
-
 
 //функция деактивации кнопки сабмит
-function handlerButtonDisbled(evt){
-  evt.classList.add('popup__submit_disabled');
-  evt.setAttribute('disabled', '');
-}
+//function handlerButtonDisbled(evt){
+  //evt.classList.add('popup__submit_disabled');
+  //evt.setAttribute('disabled', '');
+//}
 
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileUser.textContent = nameInput.value;
-  profileDescription.textContent = jobInput.value;
-  handlerButtonDisbled(popupSaveBtnEdit);
+  profileDescription.textContent = jobInput.value;  
   closePopup(popupEdit);
 }
 
@@ -141,8 +143,7 @@ function handleAddFormSubmit(evt) {
   evt.preventDefault();  
   const image = generateCard(nameImg.value, linkImg.value);
   groupElements.prepend(image);
-  evt.target.reset();
-  handlerButtonDisbled(popupSaveButton);
+  evt.target.reset();  
   closePopup(popupAdd);
  
 }
