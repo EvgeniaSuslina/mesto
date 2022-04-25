@@ -63,10 +63,7 @@ class FormValidator{
         }
     };   
 
-    _setEventListeners(){
-        //this._formElement.addEventListener('submit', (event) =>{
-            //event.preventDefault();
-        //});
+    _setEventListeners(){       
 
         this._submitButtonElement = this._formElement.querySelector(this._submitButtonSelector);   
         

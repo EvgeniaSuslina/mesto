@@ -20,7 +20,7 @@ class Card {
 
     //удаление
     _handleDelete(){
-        this._element.remove(".group__element");
+        this._element.remove();
         this._element = null;
     }
 
