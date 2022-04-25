@@ -18,7 +18,7 @@ export default class Section{
     }
 
    addNewItem(image){
-    this._container.prepend(image)
+    this._container.prepend(image);
    }
 
 }

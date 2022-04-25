@@ -64,9 +64,9 @@ class FormValidator{
     };   
 
     _setEventListeners(){
-        this._formElement.addEventListener('submit', (event) =>{
-            event.preventDefault();
-        });
+        //this._formElement.addEventListener('submit', (event) =>{
+            //event.preventDefault();
+        //});
 
         this._submitButtonElement = this._formElement.querySelector(this._submitButtonSelector);   
         
@@ -76,11 +76,7 @@ class FormValidator{
         this._toggleButtonState()
 
         this._inputList.forEach(inputElement => {
-            inputElement.addEventListener('input', (event) =>{ 
-             
-            console.log(event.target.name, event.target.value);
-
-
+            inputElement.addEventListener('input', () =>{      
             this._checkValidity( inputElement);
 
             this._toggleButtonState();

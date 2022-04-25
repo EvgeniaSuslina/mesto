@@ -24,11 +24,6 @@ const nameImg = document.querySelector(".popup__input_type_imagename")
 const linkImg = document.querySelector(".popup__input_type_imagelink") 
 const groupElements = ".group__elements";
 
-//const nameInput = document.getElementsByName("username")
-//const jobInput = document.getElementsByName("userinfo")
-//const nameImg = document.getElementsByName("username")
-//const linkImg = document.getElementsByName("userinfo")
-
 //валидация форм
 const validationElementEdit = new FormValidator(config, formElementEdit);
 validationElementEdit.enableValidation()
@@ -70,28 +65,27 @@ profileOpenPopupButton.addEventListener("click", () =>{
     nameInput.value = userData.name;
     jobInput.value = userData.job;
     validationElementEdit.resetValidation(); 
-    formEdit.open()
+    formEdit.open()    
 });
   
 
 //экземпляр класса PopupWithForm - добавление карточки
 const formAdd = new PopupWithForm({
   popupSelector: popupAdd,
-  handleFormSubmit: (inputValues) => { 
-  section.addNewItem(inputValues[nameImg], inputValues[linkImg]);      
+  handleFormSubmit: (imgData) => { 
+  const image = generateCard(imgData.username, imgData.userinfo); 
+  section.addNewItem(image);   
     formAdd.close();
-  }
-  
+  }  
   });
   
   formAdd.setEventListeners()
 
 //заполнение полей input add
-imageAddButton.addEventListener("click", () =>{
-  nameImg.value = ''
-  linkImg.value = ''  
+imageAddButton.addEventListener("click", () =>{  
   validationElementAdd.resetValidation();   ;
-  formAdd.open()
+  formAdd.open() 
+
 });
 
 //генерация карточки
@@ -103,13 +97,3 @@ function generateCard (name, link){
   //добавление карточки в разметку
 const section = new Section({items: initialCards, renderer: generateCard}, groupElements); 
 section.renderItems()
-
-//добавление карточки в разметку
-
-
-console.log(formEdit)
-console.log(formAdd)
-console.log(openFullImage)
-console.log(groupElements)
-
- 

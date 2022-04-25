@@ -20,14 +20,14 @@ class Card {
 
     //удаление
     _handleDelete(){
-        this._element.closest(".group__element").remove();
+        this._element.remove(".group__element");
+        this._element = null;
     }
 
     //лайк
     _handleLike(){
         this._likeButton.classList.toggle("group__element-like_liked");
     }
-
     
 
     //вешаем обработчики
