@@ -1,7 +1,4 @@
-.group__element-like{
-    position: absolute;
-    right:30px;
-    top: 30px;
+.group__element-like{    
     border:none;
     padding:0;
     width:22px;

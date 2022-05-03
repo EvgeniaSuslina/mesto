@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <!--<link rel="stylesheet" type="text/css" href="././pages/index.css" />-->
-
+  <head>    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
@@ -109,6 +107,35 @@
           <h2 class ="popup__caption">Текст</h2>
         </div>
       </section>
+      <section class="popup popup_type_del">
+        <div class="popup__container popup_container_type_del">
+          <button type="button" class="popup__close popup__close_type_del"></button>
+          <h3 class="popup__title popup__title_type_del">Вы уверены?</h3>
+          <button class="popup__submit popup__submit_del" type="submit">
+            Да
+          </button>       
+        </div>        
+      </section>
+      <section class="popup popup_type_ava">
+        <form class="popup__container popup__container_type_ava" name="form" novalidate>
+          <button type="button" class="popup__close popup__close_type_ava"></button>
+          <h3 class="popup__title">Обновить аватар</h3>
+          <div class ="popup__input-container">
+            <input
+              id = "avalink"
+              class="popup__input popup__input_type_avalink"
+              type="url" 
+              name="avalink"
+              placeholder="Ссылка"            
+              required
+            />
+            <span id = "error-imagelink" class ="error-imagelink  error-message"></span>
+            </div>
+            <button class="popup__submit popup__submit_ava" type="submit">
+              Сохранить
+            </button> 
+        </form>
+      </section>
       <template class ="template">
         <li class="group__element">
           <button class ="group__element-trash" type = "button"></button>
@@ -118,9 +145,12 @@
             alt=""
           />
           <div class="group__element-caption">
-            <h2 class="group__element-text"></h2>
+            <h2 class="group__element-text"></h2>          
+            <div class="group__like">
             <button class="group__element-like" type="button"></button>
-          </div>
+            <span class="group__like-counter">0</span>         
+            </div>
+        </div>
         </li>
       </template>    
      

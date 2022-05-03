@@ -3,7 +3,11 @@
     box-sizing: border-box;
     position: relative;
     background: #FFFFFF;
-    display: flex;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 22px;
+    grid-template-rows: 80px;
     justify-content: space-between;
-    align-items: center;    
+    padding: 0 20px;
+    
 }
