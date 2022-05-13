@@ -8,11 +8,11 @@ export default class PopupWithImage extends Popup{
         this.elementFullPic = document.querySelector(".popup__image");
     }
  
-    open(name, link){
-        super.open();
-        this.elementFullText.textContent =  name;
-        this.elementFullPic.src = link;
-        this.elementFullPic.alt = name;
+    openBigImage({cardLink, cardName}){ 
+        super.open();       
+        this.elementFullText.textContent =  cardName;
+        this.elementFullPic.src = cardLink;
+        this.elementFullPic.alt = cardName;
       
     }    
 }

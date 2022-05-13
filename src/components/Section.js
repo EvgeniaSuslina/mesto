@@ -1,23 +1,16 @@
 export default class Section{
-    constructor({items, renderer}, containerSelector){
-        this._initialArray = items;
+    constructor({renderer}, containerSelector){
         this._renderer = renderer;
         this._container = document.querySelector(containerSelector);
     }
     
-    renderItems(){
-    //добавление массива карточек
-    this._initialArray.forEach(data => {
-        const image = this._renderer(data.name, data.link)
-        this.addItem(image);  
+    renderItems(cardsInfo, userData){
+    cardsInfo.reverse().forEach((card) => {
+        this._renderer(card, userData);       
         });
-    }
-    //добавление карточки в разметку
+    }   
+    
     addItem(image){
-        this._container.append(image);
-    }
-
-   addNewItem(image){
     this._container.prepend(image);
    }
 

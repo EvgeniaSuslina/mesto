@@ -12,7 +12,9 @@
       </header>
       <main>
         <section class="profile">
+          <div class="profile__ava-change">
           <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар" />
+          </div>
           <div class="profile__info">
             <h1 class="profile__user">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button"></button>
@@ -72,7 +74,7 @@
             id = "imagename"
             class="popup__input popup__input_type_imagename"
             type="text" 
-            name="username"
+            name="imagename"
             placeholder="Название"
             minlength="2"
             maxlength="30"
@@ -85,7 +87,7 @@
             id = "imagelink"
             class="popup__input popup__input_type_imagelink"
             type="url" 
-            name="userinfo"
+            name="imagelink"
             placeholder="Ссылка на картинку"            
             required
           />
@@ -129,7 +131,7 @@
               placeholder="Ссылка"            
               required
             />
-            <span id = "error-imagelink" class ="error-imagelink  error-message"></span>
+            <span id = "error-avalink" class ="error-avalink  error-message"></span>
             </div>
             <button class="popup__submit popup__submit_ava" type="submit">
               Сохранить
@@ -148,7 +150,7 @@
             <h2 class="group__element-text"></h2>          
             <div class="group__like">
             <button class="group__element-like" type="button"></button>
-            <span class="group__like-counter">0</span>         
+            <h3 class="group__like-counter">0</h>         
             </div>
         </div>
         </li>
