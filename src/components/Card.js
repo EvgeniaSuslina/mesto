@@ -2,7 +2,7 @@ class Card {
     constructor(cardsInfo, userData, cardSelector, handleCardClickFunction, handleDeleteCard, handleLikeCard) {
     this._name = cardsInfo.name;
     this._link = cardsInfo.link;
-    this._numberLikes = cardsInfo.likes.lenght
+    this._numberOflikes = cardsInfo.likes.length;
     this._likes = cardsInfo.likes;
     this.cardId = cardsInfo._id;    
     this._ownerId = cardsInfo.owner._id
@@ -52,8 +52,8 @@ class Card {
         });
     }
         
-    handleLikesCounter(likesNumber){
-        this._element.querySelector(".group__like-counter").textContent = likesNumber;
+    handleLikesCounter(counter){
+        this._element.querySelector(".group__like-counter").textContent = counter;
     }
 
 
@@ -98,7 +98,7 @@ class Card {
     this._elementText.textContent = this._name;
     
 
-    this. handleLikesCounter(this._numberLikes);
+    this.handleLikesCounter(this._numberOflikes);
     this._checkIfCardWasLiked();
     this._hideDeleteButton();
       

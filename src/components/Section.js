@@ -4,14 +4,14 @@ export default class Section{
         this._container = document.querySelector(containerSelector);
     }
     
-    renderItems(cardsInfo, userData){
-    cardsInfo.reverse().forEach((card) => {
-        this._renderer(card, userData);       
+    renderItems(items){
+    items.forEach((item) => {
+        this._renderer(item);       
         });
     }   
     
     addItem(image){
-    this._container.prepend(image);
+    this._container.append(image);
    }
 
 }

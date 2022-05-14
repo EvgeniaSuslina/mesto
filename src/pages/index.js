@@ -40,10 +40,14 @@ const userInfo = new UserInfo({
   });
 
 //экземпляр класса Section
-const section = new Section({
-   renderer: generateCard
-}, groupElements)
+const section = new Section({renderer: (item) => {
+  const cardItem =  generateCard(item, userData); 
+  section.addItem(cardItem) 
+}  
+}, 
+groupElements)
 
+  
 
 //создание класса Api
 const api = new Api({
@@ -131,13 +135,13 @@ function handleProfileEditInfo (inputValues) {
     userData = {
       userName: name, 
       userJob: about, 
-      userAva: avatar, 
+      userAvatar: avatar, 
       userId: _id
     }
     userInfo.setUserInfo({
       userName: userData.userName, 
       userJob: userData.userJob,
-      userAva: userData.userAva  
+      userAvatar: userData.userAvatar  
     });
     formEdit.close()    
   })
@@ -154,14 +158,15 @@ function handlerAddNewCardIntoServer (inputValues){
 
   loading(true, popupAdd);
   api.setNewCard(inputValues.imagename, inputValues.imagelink)
-  .then(res =>{
-    section.addNewItem(res.name, res.link);  
-     
-  })
+  .then((res)=> {    
+  const card = generateCard(res, userData);
+   section.addItem(card)
+    formAdd.close();
+  })  
   .catch((err) => {
     console.log(err)
 })
-formAdd.close();
+
 }
  
 //сохранение отредактированного аватара на сервер
@@ -173,14 +178,14 @@ function handlerProfileEditAva(inputValues){
     userData = {
       userName: name, 
       userJob: about, 
-      userAva: avatar, 
+      userAvatar: avatar, 
       userId: _id
     } 
 
     userInfo.setUserInfo({
       userName: userData.userName, 
       userJob: userData.userJob,
-      userAva: userData.userAvatar 
+      userAvatar: userData.userAvatar 
     });
     formAvatar.close();
 })
@@ -202,8 +207,7 @@ function handleDeleteButtonFunction(){
 function handleSubmitDeleteButton(card) {
   api.deleteCard(card.cardId)
     .then(() => {
-      card.handleDelete();
-      card = null;
+      card.handleDelete();      
     })
     .catch((err) => {
       showErrorApi(err);
@@ -244,10 +248,11 @@ function generateCard (cardsInfo, userData){
       cardName: cardsInfo.name
     });  
   }, handleDeleteButtonFunction, handleSetLike,);
-  const cardItem =  card.renderCard(); 
-  section.addItem(cardItem)  
-}
 
+  const cardElement =  card.renderCard(); 
+  return cardElement;
+
+}
 
 
 function showErrorApi(err){
@@ -259,21 +264,24 @@ if (isLoading){
   popupSubmitButton.textContent = "Сохранение...";
 } else {
   if (popup.classList.contains("popup_type_add")) {
-    popupSubmitButton.textContent = "Создать...";
+    popupSubmitButton.textContent = "Создать";
   } else{
     popupSubmitButton.textContent = "Сохранить...";
   }
 }
 }
 
-
-//обработчик клика на форму редактирования профиля
-profileOpenPopupButton.addEventListener("click", () =>{
+function getUserInfoFromInputs(){
   const userData = userInfo.getUserInfo()
     nameInput.value = userData.name;
     jobInput.value = userData.job;
-    validationElementEdit.resetValidation(); 
-    formEdit.open()    
+}
+
+//обработчик клика на форму редактирования профиля
+profileOpenPopupButton.addEventListener("click", () =>{
+  getUserInfoFromInputs()
+  validationElementEdit.resetValidation(); 
+  formEdit.open()    
 });
 
 //обработчик клика на форму добавления карточки
