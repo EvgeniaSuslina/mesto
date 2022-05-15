@@ -158,9 +158,9 @@ function handlerAddNewCardIntoServer (inputValues){
 
   loading(true, popupAdd);
   api.setNewCard(inputValues.imagename, inputValues.imagelink)
-  .then((res)=> {    
-  const card = generateCard(res, userData);
-   section.addItem(card)
+  .then((cardsInfo)=> {    
+  const newCard = generateCard(cardsInfo, userData);
+  section.addItem(newCard)
     formAdd.close();
   })  
   .catch((err) => {
