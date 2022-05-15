@@ -159,13 +159,16 @@ function handlerAddNewCardIntoServer (inputValues){
   loading(true, popupAdd);
   api.setNewCard(inputValues.imagename, inputValues.imagelink)
   .then((cardsInfo)=> {    
-  const newCard = generateCard(cardsInfo, userData);
-  section.addItem(newCard)
+    const newCard = generateCard(cardsInfo, userData);
+    section.addNewItem(newCard)
     formAdd.close();
-  })  
+  })
   .catch((err) => {
     console.log(err)
 })
+.finally(() =>{
+  loading(false, popupAdd);
+});  
 
 }
  
@@ -261,12 +264,12 @@ function showErrorApi(err){
 
 function loading(isLoading, popup){
 if (isLoading){
-  popupSubmitButton.textContent = "Сохранение...";
+  popup.querySelector(".popup__submit").textContent = "Сохранение...";
 } else {
   if (popup.classList.contains("popup_type_add")) {
-    popupSubmitButton.textContent = "Создать";
+    popup.querySelector(".popup__submit").textContent = "Создать";
   } else{
-    popupSubmitButton.textContent = "Сохранить...";
+    popup.querySelector(".popup__submit").textContent = "Сохранить";
   }
 }
 }
